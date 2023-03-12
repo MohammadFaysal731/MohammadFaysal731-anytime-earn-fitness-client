@@ -1,11 +1,11 @@
-import {AiFillHome} from "react-icons/ai";
 import './App.css';
-import Header from "./components/Header";
+import Banner from "./components/pages/Home/Banner";
+import Header from "./components/share/Header";
 function App() {
   return (
     <div className="">
       <Header/>
-      <AiFillHome />
+      <Banner/>
     </div>
   );
 }
