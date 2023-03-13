@@ -8,6 +8,7 @@ const Footer = () => {
       <footer
         className="p-5 "
         style={{ background: "#742A59", color: "white" }}
+        fixed="bottom"
       >
         <Row xs={1} md={2} lg={4} className="g-4">
           {footerData?.map((links, index) => (

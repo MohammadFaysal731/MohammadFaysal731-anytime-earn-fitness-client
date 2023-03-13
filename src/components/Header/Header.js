@@ -15,6 +15,7 @@ const Header = () => {
         style={{ background: "#742A59" }}
         variant="dark"
         className="fs-5 p-3 user-select-none"
+        sticky="top"
       >
         <Container>
           <Navbar.Brand as={Link} to="/" className="fs-4">
