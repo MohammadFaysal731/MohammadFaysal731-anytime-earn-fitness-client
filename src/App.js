@@ -1,12 +1,19 @@
+import { Route, Routes } from 'react-router-dom';
 import './App.css';
-import Banner from "./components/pages/Home/Banner";
-import Header from "./components/share/Header";
+import Footer from './components/Footer/Footer';
+import Header from "./components/Header/Header";
+import { publicRoutes } from './routes/publicRoutes';
 function App() {
   return (
-    <div className="">
-      <Header/>
-      <Banner/>
-    </div>
+    <>
+      <Header />
+      <Routes>
+        {publicRoutes?.map(({path, Comment},index)=>(
+          <Route path={path} element={<Comment/>} key={index}/>
+        ))}
+      </Routes>
+      <Footer/>
+    </>
   );
 }
 
