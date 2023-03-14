@@ -1,15 +1,14 @@
 import React from "react";
 import { Button, Card, Col, Row } from "react-bootstrap";
-import { servicesData } from "./ServicesData";
-import {TiTickOutline}from "react-icons/ti"
+import { TiTickOutline } from "react-icons/ti";
 import { Link } from "react-router-dom";
+import { servicesData } from "./ServicesData";
 const Services = () => {
   return (
-    <div className="container p-3 my-5">
-      <div className="text-center mb-5 text-uppercase">
-        <h1 style={{ color: "#742A79" }}>Service Chart</h1>
-        <h4 style={{ color: "#9F2FF0" }}>Choose Service Package</h4>
-        <h5 style={{ color: "#742A79" }}>Monthly Yearly</h5>
+    <div className="container p-3 my-5 ">
+      <div className="text-center mb-4">
+        <h3 style={{ color: "#742A79" }}>Services Chart</h3>
+        <h2 style={{ color: "#9F2FF0" }}>Choose A Service By Package</h2>
       </div>
 
       <Row xs={1} md={2} lg={3} className="g-4">
@@ -26,7 +25,7 @@ const Services = () => {
                 <Card.Body>
                   <Card.Title
                     className="text-uppercase"
-                    style={{ color: "#742A79" }}
+                    style={{ color: "#742A59" }}
                   >
                     {name}
                   </Card.Title>
@@ -46,12 +45,12 @@ const Services = () => {
                     )}
                   </div>
                   <Link to="/about">
-                  <Button
-                    className="w-100 mt-2"
-                    style={{ background: "#742A59" }}
-                  >
-                    Book Now
-                  </Button>  
+                    <Button
+                      className="w-100 mt-2"
+                      style={{ background: "#742A59" }}
+                    >
+                      Book Now
+                    </Button>
                   </Link>
                 </Card.Body>
               </Card>
