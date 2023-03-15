@@ -28,7 +28,7 @@ const About = () => {
                   Starting a fitness journey can be difficult and scary. If you
                   are at this point, ready to make some serious lifestyle
                   changes, then come to our gym. We help you transform your body
-                  into a beautiful shape।
+                  into a beautiful shape.
                 </h6>
               </div>
               <div className="row">
@@ -41,7 +41,7 @@ const About = () => {
                       onEnter={() => setCounterOn(true)}
                       onExit={() => setCounterOn(false)}
                     >
-                      {counterOn && <CountUp start={0} end={1500} duration={3} delay={0} />
+                      {counterOn && <CountUp start={0} end={1400} duration={3} delay={0} />
                     }&nbsp;<AiFillPlusCircle />
                       
                     </ScrollTrigger>

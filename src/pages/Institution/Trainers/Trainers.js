@@ -5,12 +5,15 @@ import { trainerData } from "./TrainersData";
 const Trainers = () => {
   return (
     <>
-      <div className="container">
+      <div className="container p-3">
         <div className="text-center">
           <h3 style={{ color: "#742A59" }}>Trainers</h3>
           <h2 style={{ color: "#9F2FF0" }}>Team of Expert Coaches</h2>
+          <h4 style={{ color: "#742A59" }}>
+            We Are Always Provide Best Fitness Service For You
+          </h4>
         </div>
-        <Row xs={1} md={2} lg={3} className="g-4 p-5">
+        <Row xs={1} md={2} lg={3} className="g-4">
           {trainerData?.map(
             (
               { name, image, description, facebook, twitter, linkedin },

@@ -3,6 +3,7 @@ import About from '../About';
 import Trainers from '../Institution/Trainers/Trainers';
 import Banner from './Banner';
 import Services from './Services/Services';
+import WeeklyClassSchedule from './WeeklyClassSchedule/WeeklyClassSchedule';
 
 const Home = () => {
   return (
@@ -11,6 +12,7 @@ const Home = () => {
       <Services />
       <About />
       <Trainers />
+      <WeeklyClassSchedule/>
     </>
   );
 };
