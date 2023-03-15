@@ -4,9 +4,9 @@ import MusclesBuilding from "../../../assets/images/services/muscles.png";
 export const servicesData = [
   {
     _id: 0,
-    name: "Fitness",
+    name: "ONE-DAY VISIT",
     image: Fitness,
-    price: 50,
+    price: "20/DAY",
     descriptions: [
       { _id: 0, items1: "Unlimited Access to Home Club" },
       { _id: 1, items2: "Fitness Training" },
@@ -19,9 +19,9 @@ export const servicesData = [
   {
     _id: 1,
 
-    name: "Yoga",
+    name: "MONTHLY PASS",
     image: Yoga,
-    price: 25,
+    price: "49/MO",
     descriptions: [
       { _id: 0, items1: "Unlimited Access to Home Club" },
       { _id: 1, items2: "Fitness Training" },
@@ -33,9 +33,9 @@ export const servicesData = [
   },
   {
     _id: 2,
-    name: "Muscles Building",
+    name: "YEARLY PASS",
     image: MusclesBuilding,
-    price: 75,
+    price:"89/YR",
     descriptions: [
       { _id: 0, items1: "Unlimited Access to Home Club" },
       { _id: 1, items2: "Fitness Training" },

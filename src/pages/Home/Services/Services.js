@@ -7,7 +7,7 @@ const Services = () => {
   return (
     <div className="container p-3 my-5 ">
       <div className="text-center mb-4">
-        <h3 style={{ color: "#742A79" }}>Services Chart</h3>
+        <h3 style={{ color: "#742A59" }}>Services Chart</h3>
         <h2 style={{ color: "#9F2FF0" }}>Choose A Service By Package</h2>
       </div>
 
@@ -43,6 +43,7 @@ const Services = () => {
                         </Card.Text>
                       )
                     )}
+                    <h4 style={{ color: "#9F2FF0" }}>$ {price}</h4>
                   </div>
                   <Link to="/about">
                     <Button
