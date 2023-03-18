@@ -2,12 +2,11 @@ import React from "react";
 import { Card, Col, Row } from "react-bootstrap";
 import { footerData } from "./footerData";
 
-const Footer = () => {
+const Footer = () => { 
+  const today = new Date();
+  const year = today.getFullYear();
   return (
-    <footer
-      className="p-5"
-      style={{ background: "#742A59", color: "white" }}
-    >
+    <footer className="p-5" style={{ background: "#742A59", color: "white" }}>
       <Row xs={1} md={2} lg={4} className="g-4">
         {footerData?.map((links, index) => (
           <Col key={index}>
@@ -39,6 +38,9 @@ const Footer = () => {
           </Col>
         ))}
       </Row>
+      <p className="text-center m-3">
+        All Rights Reserved By Mohammad Faysal CopyRight &copy; {year} .
+      </p>
     </footer>
   );
 };

@@ -7,7 +7,9 @@ const Trainers = () => {
     <>
       <div className="container p-3">
         <div className="text-center">
-          <h3 style={{ color: "#742A59" }}>Trainers</h3>
+          <h3 style={{ color: "#742A59" }} className="text-uppercase">
+            Trainers
+          </h3>
           <h2 style={{ color: "#9F2FF0" }}>Team of Expert Coaches</h2>
           <h4 style={{ color: "#742A59" }}>
             We Are Always Provide Best Fitness Service For You
