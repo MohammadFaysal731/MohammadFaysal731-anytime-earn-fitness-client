@@ -5,7 +5,7 @@ import Services from "../pages/Home/Services/Services";
 import Testimonials from "../pages/Institution/Testimonials/Testimonials";
 import Trainers from "../pages/Institution/Trainers/Trainers";
 import NotFound from "../pages/NotFound";
-import OnlineCourse from "../pages/OnlineCourse";
+import OnlineCourse from "../pages/Home/OnlineCourse";
 import Routines from "../pages/Schedule/Routines";
 import ScheduleByClasses from "../pages/Schedule/ScheduleByClasses";
 import ScheduleByDay from "../pages/Schedule/ScheduleByDay";

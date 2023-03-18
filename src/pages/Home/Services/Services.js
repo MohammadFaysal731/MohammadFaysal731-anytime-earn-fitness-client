@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Card, Col, Row } from "react-bootstrap";
+import { Card, Col, Row } from "react-bootstrap";
 import { TiTickOutline } from "react-icons/ti";
 import { Link } from "react-router-dom";
 import { servicesData } from "./ServicesData";
@@ -48,12 +48,12 @@ const Services = () => {
                     <h4 style={{ color: "#9F2FF0" }}>$ {price}</h4>
                   </div>
                   <Link to="/about">
-                    <Button
-                      className="w-100 mt-2"
+                    <button
+                      className="w-100 mt-2 btn text-white"
                       style={{ background: "#742A59" }}
                     >
                       Book Now
-                    </Button>
+                    </button>
                   </Link>
                 </Card.Body>
               </Card>

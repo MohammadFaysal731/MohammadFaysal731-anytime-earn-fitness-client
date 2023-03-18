@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Card, Col, Row } from "react-bootstrap";
+import { Card, Col, Row } from "react-bootstrap";
 import { BsStarFill, BsStarHalf } from "react-icons/bs";
 import { HiOutlineDotsCircleHorizontal } from "react-icons/hi";
 import Product1 from "../../../assets/images/online-shop/electric-Treadmill-DK-12ADP2.JPG";
@@ -45,12 +45,12 @@ const OnlineShop = () => {
                     <BsStarHalf className="mx-1" />
                   </Card.Text>
                   <div className="d-flex justify-content-between align-items-center">
-                    <Button
-                      className="text-uppercase "
+                    <button
+                      className="text-uppercase btn text-white"
                       style={{ background: "#742A59" }}
                     >
                       Add To Cart
-                    </Button>
+                    </button>
                     <HiOutlineDotsCircleHorizontal
                       className="fs-3"
                       style={{ color: "#742A59" }}
