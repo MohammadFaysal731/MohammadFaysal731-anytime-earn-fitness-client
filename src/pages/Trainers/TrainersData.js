@@ -1,7 +1,7 @@
 import { BsFacebook, BsLinkedin, BsTwitter } from "react-icons/bs";
-import trainer1 from "../../../assets/images/trainers/trainer-1.png";
-import trainer2 from "../../../assets/images/trainers/trainer-2.png";
-import trainer3 from "../../../assets/images/trainers/trainer-3.png";
+import trainer1 from "../../assets/images/trainers/trainer-1.png";
+import trainer2 from "../../assets/images/trainers/trainer-2.png";
+import trainer3 from "../../assets/images/trainers/trainer-3.png";
 export const trainerData = [
   {
     _id: 0,

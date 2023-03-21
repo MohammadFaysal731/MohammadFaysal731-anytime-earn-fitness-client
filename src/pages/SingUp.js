@@ -25,7 +25,7 @@ const SingUp = () => {
   };
   return (
     <>
-      <div className="row m-2">
+      <div className="row m-3">
         <div className="col-12 col-md-6 mt-3 border rounded p-3">
           <form onSubmit={handleSubmit}>
             <h2 style={{ color: "#742A59" }}>Sing Up</h2>
@@ -152,7 +152,7 @@ const SingUp = () => {
         </div>
         <div className="col-12 col-md-6 mt-3">
           <img
-            className="img-fluid w-100 h-100 rounded-3 "
+            className="img-fluid w-100 h-100 border rounded-3 "
             src={SingUpImages}
             alt=""
           />
