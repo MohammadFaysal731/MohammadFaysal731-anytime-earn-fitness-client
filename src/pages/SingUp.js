@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import SingUpImages from "../assets/images/others/sing-up.png";
+import SocialAuthentication from "../components/SocialAuthentication/SocialAuthentication";
 const SingUp = () => {
   const [agree, setAgree] = useState(false);
 
@@ -146,6 +147,8 @@ const SingUp = () => {
               Sing Up
             </button>
           </form>
+          {/* socialAuthentication */}
+          <SocialAuthentication />
         </div>
         <div className="col-12 col-md-6 mt-3">
           <img

@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
-import { GiWeight, GiWeightLiftingUp } from "react-icons/gi";
-import { AiFillPlusCircle } from "react-icons/ai";
-import AboutImage from "../assets/images/others/about.png";
 import CountUp from 'react-countup';
+import { AiFillPlusCircle } from "react-icons/ai";
+import { GiWeight, GiWeightLiftingUp } from "react-icons/gi";
 import ScrollTrigger from 'react-scroll-trigger';
+import AboutImage from "../assets/images/others/about.png";
 
 const About = () => {
   const [counterOn, setCounterOn]=useState(false);
   return (
     <>
       <div
-        className="card mb-3 p-3 rounded-0"
+        className="card mb-3 p-5 rounded-0"
         style={{ background: "#742A59", color: "white" }}
       >
         <div className="row g-3">

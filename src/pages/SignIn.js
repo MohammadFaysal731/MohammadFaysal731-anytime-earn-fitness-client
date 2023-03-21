@@ -1,5 +1,6 @@
 import React from "react";
 import SingInImages from "../assets/images/others/sign-in.png";
+import SocialAuthentication from "../components/SocialAuthentication/SocialAuthentication";
 const SignIn = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -68,6 +69,7 @@ const SignIn = () => {
                   We'll never share your email with anyone else.
                 </div>
               </div>
+                 <label className="text-danger fw-bold">Forgot Password ? </label>
             </div>
             <button
               type="submit"
@@ -77,6 +79,9 @@ const SignIn = () => {
               Sing In
             </button>
           </form>
+           
+          {/* socialAuthentication */}
+          <SocialAuthentication />
         </div>
         <div className="col-12 col-md-6 mt-3">
           <img

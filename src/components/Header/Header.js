@@ -11,7 +11,7 @@ const Header = () => {
     <>
       <Navbar
         collapseOnSelect
-        expand="lg"
+        expand="xl"
         style={{ background: "#742A59" }}
         variant="dark"
         className="fs-5 p-3 user-select-none"
@@ -31,7 +31,7 @@ const Header = () => {
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="mx-auto">
               {/* institution start */}
-              <NavDropdown title="Institution" id="collasible-nav-dropdown">
+              <NavDropdown title="Dashboard" id="collasible-nav-dropdown">
                 <NavDropdown.Item as={Link} to="/trainers">
                   Trainers
                 </NavDropdown.Item>

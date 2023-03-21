@@ -1,0 +1,159 @@
+[
+  {
+    "name": "Suction Sit Up Abdominal",
+    "price": 675,
+    "image": "https://i.ibb.co/vm6M9R1/suction-sit-up-abdominal.png",
+    "itemCode": 101,
+    "brand": "Faysal Express LTD",
+    "measurement": " 9.7 x 4.9 x 8.3,",
+    "color": "Mixed"
+  },
+  {
+    "name": "Dumbbells' Vinyl- 3 KG",
+    "price": 945,
+    "image": "https://i.ibb.co/RHgrDrc/Dumbbells-Vinyl-3-KG.png",
+    "itemCode": 102,
+    "brand": "Faysal Express LTD",
+    "weight": "3KG",
+    "color": "Mixed"
+  },
+  {
+    "name": "Weight Plate 10 KG Black-LOC",
+    "price": 1080,
+    "image": "https://i.ibb.co/0Y9j2nB/weight-plate-10-Kg-black-LOC.png",
+    "itemCode": 103,
+    "brand": "Faysal Express LTD",
+    "weight": "10 kg",
+    "color": "Black"
+  },
+  {
+    "name": "3 Feet Dumbbells' Stick-LOC",
+    "price": 500,
+    "image": "https://i.ibb.co/N3mGj6J/3-feet-dumbbells-stick-loc.png",
+    "itemCode": 104,
+    "brand": "Faysal Express LTD",
+    "weight": " 9.7 x 4.9 x 8.3,",
+    "color": "Silver"
+  },
+  {
+    "name": "Pressurized Support Ankle",
+    "price": 405,
+    "image": "https://i.ibb.co/dGBYhhJ/pressurized-support-ankle.png",
+    "itemCode": 106,
+    "brand": "Faysal Express LTD",
+    "color": "Mixed"
+  },
+  {
+    "name": "Exercise Fitness Roller- 2 Wheel",
+    "price": 1035,
+    "image": "https://i.ibb.co/Fg1PxLt/exercise-fitness-roller-2-wheel.png",
+    "itemCode": 107,
+    "brand": "Faysal Express LTD",
+    "Measurement": " 30x15.5cm",
+    "materials": "Metal & foam",
+    "color": "Mixed"
+  },
+  {
+    "name": "Weight Plate 5 Kg-LOC",
+    "price": 562,
+    "image": "https://i.ibb.co/GCD8dBP/weight-plate-5-kg-loc-1.png",
+    "itemCode": 108,
+    "brand": "Faysal Express LTD",
+    "weight": "5 kg",
+    "color": "Silver"
+  },
+  {
+    "name": "Fitness Foam Roller-45X47CM",
+    "price": 967,
+    "image": "https://i.ibb.co/fXbSbRB/fitness-foam-roller-45-X47-CM.png",
+    "itemCode": 109,
+    "brand": "Faysal Express LTD",
+    "color": "Mixed"
+  },
+  {
+    "name": "SKIPPING ROPE NS-393",
+    "price": 350,
+    "image": "https://i.ibb.co/3s5Ms4N/skipping-rope-ns-393.png",
+    "itemCode": 110,
+    "brand": "Faysal Express LTD",
+    "Measurement": "5feet,",
+    "color": "Green"
+  },
+  {
+    "name": "POWER TWISTER 30 KG",
+    "price": 700,
+    "image": "https://i.ibb.co/SBqL09b/power-twister-30kg.png",
+    "itemCode": 111,
+    "brand": "Faysal Express LTD",
+    "weight": "30kg",
+    "color": "Black"
+  },
+  {
+    "name": "MULTIFUNCTIONAL BLANCE PAD",
+    "price": 1000,
+    "image": "https://i.ibb.co/KwMFGpN/multifunctional-blance-pad.png",
+    "itemCode": 112,
+    "brand": "Faysal Express LTD",
+    "Measurement": " 9.7 x 4.9 x 8.3,",
+    "color": "Pink"
+  },
+  {
+    "name": "Fitness Cycle -515- B",
+    "price": 15300,
+    "image": "https://i.ibb.co/RQx2nVX/fitness-cycle-515-b.png",
+    "itemCode": 113,
+    "brand": "Faysal Express LTD",
+    "color": "Black"
+  },
+  {
+    "name": "Electric Treadmill DK 12ADP2",
+    "price": 41062,
+    "image": "https://i.ibb.co/XCKYgsk/electric-treadmil-dk-12adp2-electric.png",
+    "itemCode": 15,
+    "brand": "Faysal Express LTD",
+    "weight": "47 kg",
+    "color": "Black"
+  },
+  {
+    "name": "Revoflex Xtreme Exercise",
+    "price": 810,
+    "image": "https://i.ibb.co/Jtgf8h2/revoflex-xtreme-exercise.png",
+    "itemCode": 16,
+    "brand": "Faysal Express LTD",
+    "Measurement": "16 * 43 * 5m",
+    "color": "Black"
+  },
+  {
+    "name": "Push On Bar",
+    "price": 517,
+    "image": "https://i.ibb.co/6bL3yPW/push-on-bar.png",
+    "itemCode": 16,
+    "brand": "Faysal Express LTD",
+    "color": "Mixed"
+  },
+  {
+    "name": "CHEST PULL - 5 SPRING",
+    "price": 750,
+    "image": "https://i.ibb.co/KmMKpPT/chest-pull-5-spring.png",
+    "itemCode": 18,
+    "brand": "Faysal Express LTD",
+    "color": "Mixed"
+  },
+  {
+    "name": "WAIST TWISTING DISC",
+    "price": 850,
+    "image": "https://i.ibb.co/K2CT4CL/waist-twisting-disc.png",
+    "itemCode": 19,
+    "brand": "Faysal Express LTD",
+    "weight": "47 kg",
+    "color": "Mixed"
+  },
+  {
+    "name": "Tummy Trimmer Double Spring",
+    "price": 550,
+    "image": "https://i.ibb.co/g7HDtDD/tummy-trimmer-double-spring.png",
+    "itemCode": 20,
+    "brand": "Faysal Express LTD",
+    "color": "Black"
+  }
+]

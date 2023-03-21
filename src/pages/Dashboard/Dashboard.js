@@ -1,6 +1,6 @@
 import React from "react";
 
-const Institution = () => {
+const Dashboard = () => {
   return (
     <>
       <h1>Institution</h1>
@@ -8,4 +8,4 @@ const Institution = () => {
   );
 };
 
-export default Institution;
+export default Dashboard;

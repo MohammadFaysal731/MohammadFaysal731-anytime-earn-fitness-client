@@ -2,10 +2,10 @@ import About from "../pages/About";
 import Contact from "../pages/Contact";
 import Home from "../pages/Home/Home";
 import Services from "../pages/Home/Services/Services";
-import Testimonials from "../pages/Institution/Testimonials/Testimonials";
-import Trainers from "../pages/Institution/Trainers/Trainers";
-import NotFound from "../pages/NotFound";
+import Testimonials from "../pages/Dashboard/Testimonials/Testimonials";
+import Trainers from "../pages/Dashboard/Trainers/Trainers";
 import OnlineCourse from "../pages/Home/OnlineCourse";
+import NotFound from "../pages/NotFound";
 import Routines from "../pages/Schedule/Routines";
 import ScheduleByClasses from "../pages/Schedule/ScheduleByClasses";
 import ScheduleByDay from "../pages/Schedule/ScheduleByDay";
@@ -17,7 +17,7 @@ export const publicRoutes =[
   {path:"/",name:"Home",Comment:Home},
   {path:"/shop",name:"Shop",Comment:Shop},
   {path:"/trainers",name:"Trainers",Comment:Trainers},
-  {path:"/testimonials",name:"Testimonials",Comment:Testimonials},
+  {path:"/testimonials",name:"Testimonials",Comment:Testimonials },
   {path:"/pricing",name:"Pricing",Comment:Services},
   {path:"/routines",name:"Routines",Comment:Routines},
   {path:"/schedule-by-day",name:"ScheduleByDay",Comment:ScheduleByDay},
