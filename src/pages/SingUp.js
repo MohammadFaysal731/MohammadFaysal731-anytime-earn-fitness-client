@@ -9,17 +9,20 @@ import SocialAuthentication from "../components/SocialAuthentication/SocialAuthe
 import auth from "../firebase.inti";
 const SingUp = () => {
   const [createUserWithEmailAndPassword, emailUser, emailLoading, emailError] =
-    useCreateUserWithEmailAndPassword(auth);
+    useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
     const navigate =useNavigate();
-    const [updateProfile, updating, error] = useUpdateProfile(auth);
+    const [updateProfile, updating, updatingError] = useUpdateProfile(auth);
+   
    let errorElement;
-   if (emailLoading) {
+   if (emailLoading || updating) {
      return <Loading />;
    }
-   if (emailError) {
+   if (emailError || updatingError) {
      errorElement = (
        <p>
-         <small className="text-danger">{emailError.message}</small>
+         <small className="text-danger">
+           {emailError.message || updatingError.message}
+         </small>
        </p>
      );
    }
@@ -30,15 +33,14 @@ const SingUp = () => {
     e.preventDefault();
     const displayName = e.target.fullName.value;
     const emailAddress = e.target.emailAddress.value;
-    const phoneNumber = e.target.phoneNumber.value;
     const password = e.target.password.value;
     const confirmPassword = e.target.confirmPassword.value;
   if(password.length ===confirmPassword.length){
    await createUserWithEmailAndPassword(emailAddress, password);
-   await toast(`success fully create this user ${emailAddress}.thank you`);
-   const success = await updateProfile({ displayName, phoneNumber });
+   toast(`success fully create this user ${emailAddress}.thank you`);
+   const success = await updateProfile({ displayName });
    if(success){
-    toast.success(`${displayName} profile is update`);
+   toast.success(`${displayName} profile is update`);
    }
   }
   else{
@@ -55,7 +57,7 @@ const SingUp = () => {
             <h2 style={{ color: "#742A59" }}>Sing Up</h2>
             <div className="row">
               {/*  Name  */}
-              <div class="mb-3 col-12">
+              <div class="mb-3 col-6">
                 <label for="full-name" class="form-label">
                   Full Name
                 </label>
@@ -79,20 +81,6 @@ const SingUp = () => {
                   class="form-control"
                   id="email-address"
                   placeholder="Email Address"
-                  required
-                />
-              </div>
-              {/* Phone Number   */}
-              <div class="mb-3 col-6">
-                <label for="phoneNumber" class="form-label">
-                  Phone Number
-                </label>
-                <input
-                  type="number"
-                  name="phoneNumber"
-                  class="form-control"
-                  id="phone-number"
-                  placeholder="Phone Number"
                   required
                 />
               </div>

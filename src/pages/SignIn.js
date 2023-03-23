@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useRef } from "react";
 import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import SingInImages from "../assets/images/others/sign-in.png";
 import Loading from "../components/Loading";
 import SocialAuthentication from "../components/SocialAuthentication/SocialAuthentication";
@@ -11,6 +12,10 @@ const [signInWithEmailAndPassword, emailUser, emailLoading, emailError] =
   const [sendPasswordResetEmail, sending, error] =
     useSendPasswordResetEmail(auth);
   const navigate =useNavigate();
+  const emailRef =useRef('');
+
+  const passwordRef =useRef('');
+
   let errorElement;
   if (emailLoading || sending) {
     return <Loading />;
@@ -27,22 +32,25 @@ const [signInWithEmailAndPassword, emailUser, emailLoading, emailError] =
   if(emailUser){
     navigate("/shop")
   }
+  // form submit
   const handleSubmit = (e) => {
-    const emailAddress = e.target.emailAddress.value;
-    const password = e.target.password.value;
-   
-
-    const signData = {
-      emailAddress,
-      password,
-    
-    };
-    
-     signInWithEmailAndPassword(emailAddress,password) 
-    
-    
-    console.log(signData);
+    e.preventDefault();
+    const email = emailRef.current.value;
+    const password =passwordRef.current.value;
+      signInWithEmailAndPassword(email, password);
   };
+// forget password 
+  const handleForgetPassword =async ()=>{
+    const email = emailRef.current.value;
+    if(email){
+     await sendPasswordResetEmail(email);
+     toast.success('email was please check your mail')
+    }
+    else{
+      toast.error(`please enter email`)
+    }
+    console.log(email);
+  }
   return (
     <>
       <div className="row m-3 ">
@@ -52,12 +60,12 @@ const [signInWithEmailAndPassword, emailUser, emailLoading, emailError] =
             <div className="row">
               {/* Email Address */}
               <div class="mb-3 col-12">
-                <label for="emailAddress" class="form-label">
+                <label for="email" class="form-label">
                   Email Address
                 </label>
                 <input
                   type="email"
-                  name="emailAddress"
+                  ref={emailRef}
                   class="form-control"
                   id="email-address"
                   placeholder="Email Address"
@@ -72,7 +80,7 @@ const [signInWithEmailAndPassword, emailUser, emailLoading, emailError] =
                 <input
                   type="password"
                   class="form-control"
-                  name="password"
+                  ref={passwordRef}
                   id="password"
                   placeholder="Password"
                   required
@@ -80,12 +88,6 @@ const [signInWithEmailAndPassword, emailUser, emailLoading, emailError] =
               </div>
 
               {errorElement}
-              <div
-                onClick={()=>sendPasswordResetEmail()}
-                className="text-danger fw-bold d-flex justify-content-end"
-              >
-                Forgot Password ?
-              </div>
             </div>
             <button
               type="submit"
@@ -95,7 +97,14 @@ const [signInWithEmailAndPassword, emailUser, emailLoading, emailError] =
               Sing In
             </button>
           </form>
-
+          <div className=" d-flex justify-content-end">
+            <button
+              onClick={handleForgetPassword}
+              className="btn btn-link text-decoration-none text-danger fw-bold"
+            >
+              Forget Password ?
+            </button>
+          </div>
           {/* socialAuthentication */}
           <SocialAuthentication />
         </div>

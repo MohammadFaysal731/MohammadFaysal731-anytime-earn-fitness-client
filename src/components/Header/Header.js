@@ -81,7 +81,7 @@ console.log(user);
                         className="btn btn-link text-decoration-none fs-5 text-white"
                         onClick={() => signOut()}
                       >
-                        Sign Out
+                        Sign out
                       </button>
                     </div>
                   </div>
