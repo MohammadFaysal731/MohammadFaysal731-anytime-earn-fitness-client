@@ -1,7 +1,6 @@
 import React from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
 import { useAuthState, useSignOut } from "react-firebase-hooks/auth";
-import { AiOutlineUserAdd } from "react-icons/ai";
 import { BiLogIn } from "react-icons/bi";
 import { CgGym } from "react-icons/cg";
 import { MdSportsGymnastics } from "react-icons/md";
@@ -11,7 +10,7 @@ import auth from "../../firebase.inti";
 const Header = () => {
   const [user] = useAuthState(auth);
   const [signOut] = useSignOut(auth);
-console.log(user);
+  console.log(user);
   return (
     <>
       <Navbar
@@ -88,10 +87,6 @@ console.log(user);
                 </>
               ) : (
                 <>
-                  <Nav.Link as={Link} to="/sing-up">
-                    Sing up
-                    <AiOutlineUserAdd />
-                  </Nav.Link>
                   <Nav.Link as={Link} to="/sign-in">
                     Sign in
                     <BiLogIn />

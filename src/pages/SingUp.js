@@ -1,7 +1,7 @@
 
-import React from "react";
+import React, { useEffect } from "react";
 import { useCreateUserWithEmailAndPassword, useUpdateProfile } from "react-firebase-hooks/auth";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import SingUpImages from "../assets/images/others/sing-up.png";
 import Loading from "../components/Loading";
@@ -10,10 +10,18 @@ import auth from "../firebase.inti";
 const SingUp = () => {
   const [createUserWithEmailAndPassword, emailUser, emailLoading, emailError] =
     useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
-    const navigate =useNavigate();
     const [updateProfile, updating, updatingError] = useUpdateProfile(auth);
+    const navigate =useNavigate();
    
-   let errorElement;
+    let errorElement;
+   
+   
+    useEffect(() => {
+      if (emailUser) {
+        navigate("/checkout");
+      }
+    }, [emailUser, navigate,]);
+    
    if (emailLoading || updating) {
      return <Loading />;
    }
@@ -26,9 +34,7 @@ const SingUp = () => {
        </p>
      );
    }
-   if (emailUser) {
-     navigate("/shop");
-   }
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
     const displayName = e.target.fullName.value;
@@ -122,6 +128,17 @@ const SingUp = () => {
               Sing Up
             </button>
           </form>
+          {/* toggle to sing-in */}
+            <p className="text-nowrap fw-bold">
+              Do yor have account ?
+              <Link
+                to="/sign-in"
+                className="text-decoration-none "
+                style={{ color: "#742A59" }}
+              >
+                &nbsp; Please sign in
+              </Link>
+            </p>
           {/* socialAuthentication */}
           <SocialAuthentication />
         </div>

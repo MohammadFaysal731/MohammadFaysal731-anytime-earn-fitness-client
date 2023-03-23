@@ -47,7 +47,7 @@ const Services = () => {
                     )}
                     <h4 style={{ color: "#9F2FF0" }}>$ {price}</h4>
                   </div>
-                  <Link to="/about">
+                  <Link to="/checkout">
                     <button
                       className="w-100 mt-2 btn text-white"
                       style={{ background: "#742A59" }}

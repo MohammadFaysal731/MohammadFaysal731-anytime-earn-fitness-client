@@ -1,11 +1,10 @@
 import React, { useEffect } from "react";
 import {
-  useSignInWithGoogle,
-  useSignInWithFacebook,
+  useSignInWithFacebook, useSignInWithGoogle
 } from "react-firebase-hooks/auth";
 import { FaFacebookSquare } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import auth from "../../firebase.inti";
 import Loading from "../Loading";
 const SocialAuthentication = () => {
@@ -13,15 +12,15 @@ const SocialAuthentication = () => {
     useSignInWithGoogle(auth);
   const [signInWithFacebook, facebookUser, facebookLoading, facebookError] =
     useSignInWithFacebook(auth);
-
-  const navigate = useNavigate();
-  let errorElement;
-
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || "/";
+    let errorElement;
     useEffect(() => {
       if (googleUser || facebookUser) {
-        navigate("/shop");
+        navigate(from ,{replace:true});
       }
-    }, [googleUser, facebookUser, navigate,]);
+    }, [googleUser, facebookUser, navigate,from]);
 
   if (googleLoading || facebookLoading) {
     return <Loading />;

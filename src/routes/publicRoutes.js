@@ -7,7 +7,6 @@ import Shop from "../pages/Shop/Shop";
 import SignIn from "../pages/SignIn";
 import SingUp from "../pages/SingUp";
 import Trainers from "../pages/Trainers/Trainers";
-
 export const publicRoutes = [
   { path: "/", name: "Home", Comment: Home },
   { path: "/shop", name: "Shop", Comment: Shop },

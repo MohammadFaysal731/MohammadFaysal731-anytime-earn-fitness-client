@@ -1,22 +1,31 @@
-import React, { useRef } from "react";
-import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
-import { useNavigate } from "react-router-dom";
+import React, { useEffect, useRef } from "react";
+import {
+  useSendPasswordResetEmail,
+  useSignInWithEmailAndPassword,
+} from "react-firebase-hooks/auth";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import SingInImages from "../assets/images/others/sign-in.png";
 import Loading from "../components/Loading";
 import SocialAuthentication from "../components/SocialAuthentication/SocialAuthentication";
 import auth from "../firebase.inti";
 const SignIn = () => {
-const [signInWithEmailAndPassword, emailUser, emailLoading, emailError] =
-  useSignInWithEmailAndPassword(auth);
+  const [signInWithEmailAndPassword, emailUser, emailLoading, emailError] =
+    useSignInWithEmailAndPassword(auth);
   const [sendPasswordResetEmail, sending, error] =
     useSendPasswordResetEmail(auth);
-  const navigate =useNavigate();
-  const emailRef =useRef('');
-
-  const passwordRef =useRef('');
-
+  const emailRef = useRef("");
+  const passwordRef = useRef("");
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from= location.state?.from?.pathname ||'/'
   let errorElement;
+  useEffect(() => {
+    if (emailUser) {
+      navigate(from ,{replace:true});
+    }
+  }, [emailUser, navigate,from]);
+
   if (emailLoading || sending) {
     return <Loading />;
   }
@@ -29,28 +38,25 @@ const [signInWithEmailAndPassword, emailUser, emailLoading, emailError] =
       </p>
     );
   }
-  if(emailUser){
-    navigate("/shop")
-  }
+
   // form submit
   const handleSubmit = (e) => {
     e.preventDefault();
     const email = emailRef.current.value;
-    const password =passwordRef.current.value;
-      signInWithEmailAndPassword(email, password);
+    const password = passwordRef.current.value;
+    signInWithEmailAndPassword(email, password);
   };
-// forget password 
-  const handleForgetPassword =async ()=>{
+  // forget password
+  const handleForgetPassword = async () => {
     const email = emailRef.current.value;
-    if(email){
-     await sendPasswordResetEmail(email);
-     toast.success('email was please check your mail')
-    }
-    else{
-      toast.error(`please enter email`)
+    if (email) {
+      await sendPasswordResetEmail(email);
+      toast.success("email was please check your mail");
+    } else {
+      toast.error(`please enter email`);
     }
     console.log(email);
-  }
+  };
   return (
     <>
       <div className="row m-3 ">
@@ -97,14 +103,28 @@ const [signInWithEmailAndPassword, emailUser, emailLoading, emailError] =
               Sing In
             </button>
           </form>
-          <div className=" d-flex justify-content-end">
-            <button
-              onClick={handleForgetPassword}
-              className="btn btn-link text-decoration-none text-danger fw-bold"
-            >
-              Forget Password ?
-            </button>
+          {/* toggle to sing-up and forget */}
+          <div className="text-nowrap fw-bold d-flex justify-content-between align-items-center">
+            <span>
+              Are you new ?
+              <Link
+                to="/sing-up"
+                className="text-decoration-none "
+                style={{ color: "#742A59" }}
+              >
+                &nbsp; Please sing up
+              </Link>
+            </span>
+            <span>
+              <button
+                onClick={handleForgetPassword}
+                className="btn btn-link  text-danger  text-decoration-none fw-bold"
+              >
+                &nbsp; Forget Password ?
+              </button>
+            </span>
           </div>
+
           {/* socialAuthentication */}
           <SocialAuthentication />
         </div>
