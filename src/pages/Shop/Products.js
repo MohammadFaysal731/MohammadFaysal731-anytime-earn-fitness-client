@@ -4,7 +4,6 @@ import Pagination from './Pagination';
 
 const Products = ({
   shopData,
-  shopData1,
   productsPerPage,
   setCurrentPage,
   currentPage,
@@ -37,7 +36,7 @@ const Products = ({
       )}
       <div className="">
         <Pagination
-          totalProducts={shopData1.length}
+          totalProducts={shopData.length}
           productsPerPage={productsPerPage}
           setCurrentPage={setCurrentPage}
           currentPage={currentPage}

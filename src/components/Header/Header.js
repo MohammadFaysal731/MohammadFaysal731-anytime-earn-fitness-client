@@ -6,11 +6,12 @@ import { BiLogIn } from "react-icons/bi";
 import { CgGym } from "react-icons/cg";
 import { MdSportsGymnastics } from "react-icons/md";
 import { Link } from "react-router-dom";
+import User from "../../assets/images/others/user.jpg";
 import auth from "../../firebase.inti";
 const Header = () => {
   const [user] = useAuthState(auth);
   const [signOut] = useSignOut(auth);
-
+console.log(user);
   return (
     <>
       <Navbar
@@ -52,27 +53,36 @@ const Header = () => {
               {/* online-course end */}
             </Nav>
             <Nav>
-              {user?.displayName ? (
+              {user ? (
                 <>
                   <div className="d-flex justify-content-center align-items-center">
                     <div>
-                     <img
-                      style={{ width: "35px" }}
-                      className="rounded-circle "
-                      src={user?.photoURL && user?.photoURL}
-                      alt=""
-                    /> 
+                      {user.photoURL ? (
+                        <img
+                          style={{ width: "35px" }}
+                          className="rounded-circle "
+                          src={user?.photoURL}
+                          alt=""
+                        />
+                      ) : (
+                        <div className="">
+                          <img
+                            style={{ width: "35px" }}
+                            className="rounded-circle "
+                            src={User}
+                            alt=""
+                          />
+                        </div>
+                      )}
                     </div>
-                    <div className="text-white m-1">
-                      {user?.displayName && user?.displayName}
-                    </div>
+                    <div className="text-white m-1 ">{user?.displayName}</div>
                     <div className="">
-                            <button 
-                    className="btn btn-link text-decoration-none fs-5 text-white"
-                      onClick={()=>signOut()}
-                    >
-                      Sign Out
-                    </button>
+                      <button
+                        className="btn btn-link text-decoration-none fs-5 text-white"
+                        onClick={() => signOut()}
+                      >
+                        Sign Out
+                      </button>
                     </div>
                   </div>
                 </>

@@ -1,28 +1,52 @@
-import React, { useState } from "react";
-import SingUpImages from "../assets/images/others/sing-up.png";
-import SocialAuthentication from "../components/SocialAuthentication/SocialAuthentication";
-const SingUp = () => {
-  const [agree, setAgree] = useState(false);
 
-  const handleSubmit = (e) => {
+import React from "react";
+import { useCreateUserWithEmailAndPassword, useUpdateProfile } from "react-firebase-hooks/auth";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import SingUpImages from "../assets/images/others/sing-up.png";
+import Loading from "../components/Loading";
+import SocialAuthentication from "../components/SocialAuthentication/SocialAuthentication";
+import auth from "../firebase.inti";
+const SingUp = () => {
+  const [createUserWithEmailAndPassword, emailUser, emailLoading, emailError] =
+    useCreateUserWithEmailAndPassword(auth);
+    const navigate =useNavigate();
+    const [updateProfile, updating, error] = useUpdateProfile(auth);
+   let errorElement;
+   if (emailLoading) {
+     return <Loading />;
+   }
+   if (emailError) {
+     errorElement = (
+       <p>
+         <small className="text-danger">{emailError.message}</small>
+       </p>
+     );
+   }
+   if (emailUser) {
+     navigate("/shop");
+   }
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const firstName = e.target.firstName.value;
-    const lastName = e.target.lastName.value;
+    const displayName = e.target.fullName.value;
     const emailAddress = e.target.emailAddress.value;
     const phoneNumber = e.target.phoneNumber.value;
     const password = e.target.password.value;
     const confirmPassword = e.target.confirmPassword.value;
-    const fromData ={
-      firstName,
-      lastName,
-      emailAddress,
-      phoneNumber,
-      password,
-      confirmPassword,
+  if(password.length ===confirmPassword.length){
+   await createUserWithEmailAndPassword(emailAddress, password);
+   await toast(`success fully create this user ${emailAddress}.thank you`);
+   const success = await updateProfile({ displayName, phoneNumber });
+   if(success){
+    toast.success(`${displayName} profile is update`);
+   }
+  }
+  else{
+    toast.error(`sorry, password not match to confirmPassword. please check`)
+  }
 
-    }
-    console.log(fromData);
   };
+  
   return (
     <>
       <div className="row m-3">
@@ -30,37 +54,19 @@ const SingUp = () => {
           <form onSubmit={handleSubmit}>
             <h2 style={{ color: "#742A59" }}>Sing Up</h2>
             <div className="row">
-              {/* First Name  */}
-              <div class="mb-3 col-6">
-                <label for="firstName" class="form-label">
-                  First Name
+              {/*  Name  */}
+              <div class="mb-3 col-12">
+                <label for="full-name" class="form-label">
+                  Full Name
                 </label>
                 <input
                   type="text"
-                  name="firstName"
+                  name="fullName"
                   class="form-control"
-                  id="first-name"
-                  placeholder="First Name"
+                  id="full-name"
+                  placeholder="Full Name"
+                  required
                 />
-                <div id="first-name" class="form-text">
-                  We'll never share your email with anyone else.
-                </div>
-              </div>
-              {/* Last Name  */}
-              <div class="mb-3 col-6">
-                <label for="lastName" class="form-label">
-                  Last Name
-                </label>
-                <input
-                  type="text"
-                  name="lastName"
-                  class="form-control"
-                  id="last-name"
-                  placeholder="Last Name"
-                />
-                <div id="last-name" class="form-text">
-                  We'll never share your email with anyone else.
-                </div>
               </div>
               {/* Email Address */}
               <div class="mb-3 col-6">
@@ -73,10 +79,8 @@ const SingUp = () => {
                   class="form-control"
                   id="email-address"
                   placeholder="Email Address"
+                  required
                 />
-                <div id="email-address" class="form-text">
-                  We'll never share your email with anyone else.
-                </div>
               </div>
               {/* Phone Number   */}
               <div class="mb-3 col-6">
@@ -89,10 +93,8 @@ const SingUp = () => {
                   class="form-control"
                   id="phone-number"
                   placeholder="Phone Number"
+                  required
                 />
-                <div id="phone-number" class="form-text">
-                  We'll never share your email with anyone else.
-                </div>
               </div>
               {/* Password   */}
               <div class="mb-3 col-6">
@@ -105,10 +107,8 @@ const SingUp = () => {
                   name="password"
                   id="password"
                   placeholder="Password"
+                  required
                 />
-                <div id="password" class="form-text">
-                  We'll never share your email with anyone else.
-                </div>
               </div>
               {/* Confirm Password   */}
               <div class="mb-3 col-6">
@@ -121,24 +121,11 @@ const SingUp = () => {
                   class="form-control"
                   id="confirm-password"
                   placeholder="Confirm Password"
+                  required
                 />
-                <div id="confirmPassword" class="form-text">
-                  We'll never share your email with anyone else.
-                </div>
               </div>
             </div>
-            {/* Check  */}
-            <div class="mb-3 form-check">
-              <input
-                type="checkbox"
-                class="form-check-input"
-                id="exampleCheck1"
-                name="check"
-              />
-              <label class="form-check-label" for="exampleCheck1">
-                Agree to terms and conditions
-              </label>
-            </div>
+            {errorElement}
             <button
               type="submit"
               className="m-3 btn text-white"

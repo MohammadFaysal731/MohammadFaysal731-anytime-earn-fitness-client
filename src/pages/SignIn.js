@@ -1,18 +1,47 @@
 import React from "react";
+import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+import { useNavigate } from "react-router-dom";
 import SingInImages from "../assets/images/others/sign-in.png";
+import Loading from "../components/Loading";
 import SocialAuthentication from "../components/SocialAuthentication/SocialAuthentication";
+import auth from "../firebase.inti";
 const SignIn = () => {
+const [signInWithEmailAndPassword, emailUser, emailLoading, emailError] =
+  useSignInWithEmailAndPassword(auth);
+  const [sendPasswordResetEmail, sending, error] =
+    useSendPasswordResetEmail(auth);
+  const navigate =useNavigate();
+  let errorElement;
+  if (emailLoading || sending) {
+    return <Loading />;
+  }
+  if (emailError || error) {
+    errorElement = (
+      <p>
+        <small className="text-danger">
+          {emailError?.message || sending?.message}
+        </small>
+      </p>
+    );
+  }
+  if(emailUser){
+    navigate("/shop")
+  }
   const handleSubmit = (e) => {
-    e.preventDefault();
     const emailAddress = e.target.emailAddress.value;
     const password = e.target.password.value;
-    const confirmPassword = e.target.confirmPassword.value;
-    const fromData = {
+   
+
+    const signData = {
       emailAddress,
       password,
-      confirmPassword,
+    
     };
-    console.log(fromData);
+    
+     signInWithEmailAndPassword(emailAddress,password) 
+    
+    
+    console.log(signData);
   };
   return (
     <>
@@ -32,10 +61,8 @@ const SignIn = () => {
                   class="form-control"
                   id="email-address"
                   placeholder="Email Address"
+                  required
                 />
-                <div id="email-address" class="form-text">
-                  We'll never share your email with anyone else.
-                </div>
               </div>
               {/* Password   */}
               <div class="mb-3 col-12">
@@ -48,28 +75,17 @@ const SignIn = () => {
                   name="password"
                   id="password"
                   placeholder="Password"
+                  required
                 />
-                <div id="password" class="form-text">
-                  We'll never share your email with anyone else.
-                </div>
               </div>
-              {/* Confirm Password   */}
-              <div class="mb-3 col-12">
-                <label for="confirmPassword" class="form-label">
-                  Confirm Password
-                </label>
-                <input
-                  type="password"
-                  name="confirmPassword"
-                  class="form-control"
-                  id="confirm-password"
-                  placeholder="Confirm Password"
-                />
-                <div id="confirmPassword" class="form-text">
-                  We'll never share your email with anyone else.
-                </div>
+
+              {errorElement}
+              <div
+                onClick={()=>sendPasswordResetEmail()}
+                className="text-danger fw-bold d-flex justify-content-end"
+              >
+                Forgot Password ?
               </div>
-              <label className="text-danger fw-bold">Forgot Password ? </label>
             </div>
             <button
               type="submit"

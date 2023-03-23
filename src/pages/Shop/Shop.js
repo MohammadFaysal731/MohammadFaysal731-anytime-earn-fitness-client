@@ -32,7 +32,7 @@ const Shop = () => {
           </Form.Select>
           <Products
             shopData={currentProduct}
-            shopData1={shopData}
+           
             productsPerPage={productsPerPage}
             setCurrentPage={setCurrentPage}
             currentPage={currentPage}
