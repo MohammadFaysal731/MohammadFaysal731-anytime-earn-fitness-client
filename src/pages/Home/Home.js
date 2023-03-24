@@ -1,6 +1,6 @@
 import React from 'react';
-import About from '../About';
 import Trainers from '../Trainers/Trainers';
+import AboutSection from './AboutSection';
 import Banner from './Banner';
 import OnlineShop from './OnlineShop/OnlineShop';
 import Services from './Services/Services';
@@ -11,7 +11,7 @@ const Home = () => {
     <>
       <Banner />
       <Services />
-      <About />
+      <AboutSection/>
       <Trainers />
       <WeeklyClassSchedule/>
       <OnlineShop/>

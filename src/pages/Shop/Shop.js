@@ -1,49 +1,101 @@
-import { } from "bootstrap";
 import React, { useEffect, useState } from "react";
-import { Col, Form, Row } from "react-bootstrap";
-import Products from "./Products";
-import ProductsSearchFunctionality from "./ProductsSearchFunctionality";
+import { Card, Col, Row } from "react-bootstrap";
+import Pagination from "./Pagination";
+
 const Shop = () => {
   const [shopData, setShopData] = useState([]);
-  const [currentPage, setCurrentPage]=useState(1);
-  const [productsPerPage]=useState(4);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [productsPerPage] = useState(4);
 
   useEffect(() => {
     fetch("shopData.json")
       .then((res) => res.json())
-      .then((result) => setShopData(result));
+      .then((result) =>setShopData(result))
   }, []);
- 
+
   // get current page
   const lastIndexOfProduct = currentPage * productsPerPage;
   const firstIndexOfProduct = lastIndexOfProduct - productsPerPage;
-  const currentProduct= shopData.slice(firstIndexOfProduct, lastIndexOfProduct);
+  const currentProduct = shopData.slice(
+    firstIndexOfProduct,
+    lastIndexOfProduct
+  );
+  
   return (
     <div className="container">
       <h2 className="text-center m-3">Welcome to Our Online Shope</h2>
-      <Row xs={1} md={2}>
+      <Row xs={1} md={1}>
         {/* first columns start */}
         <Col>
-          <Form.Select aria-label="Default select example" className="mb-3">
-            <option>Open this select menu</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
-          </Form.Select>
-          <Products
-            shopData={currentProduct}
-           
-            productsPerPage={productsPerPage}
-            setCurrentPage={setCurrentPage}
-            currentPage={currentPage}
-          />
+       
+          <Row xs={1} md={2} className="g-3">
+            {currentProduct?.map(
+              (
+                {
+                  name,
+                  price,
+                  image,
+                  itemCode,
+                  brand,
+                  measurement,
+                  color,
+                  weight,
+                },
+                index
+              ) => (
+                <Col key={index}>
+                  <Card style={{ height: "100%" }}>
+                    <Card.Img
+                      variant="top"
+                      src={image}
+                      className="img-fluid "
+                    />
+                    <Card.Body>
+                      <Card.Title className="">{name}</Card.Title>
+                      <div>
+                        <h5>$ {price} /-</h5>
+                        <h5>Description:</h5>
+                        <div>
+                          <p>
+                            Item Code:
+                            <span className="fw-bold">{itemCode}</span>
+                          </p>
+                          <p>
+                            Brand Name:
+                            <span className="fw-bold"> {brand}</span>
+                          </p>
+                          <p>
+                            Measurement:
+                            <span className="fw-bold">{measurement}</span>
+                          </p>
+                          <p>
+                            Color:<span className="fw-bold">{color}</span>
+                          </p>
+                          {weight ? (
+                            <p>
+                              <span className="fw-bold">Weight: {weight}</span>
+                            </p>
+                          ) : (
+                            ""
+                          )}
+                        </div>
+                      </div>
+                    </Card.Body>
+                  </Card>
+                </Col>
+              )
+            )}
+            <div className="">
+              <Pagination
+                totalProducts={shopData.length}
+                productsPerPage={productsPerPage}
+                setCurrentPage={setCurrentPage}
+                currentPage={currentPage}
+              />
+            </div>
+          </Row>
         </Col>
         {/* first columns end */}
-        {/* second columns start */}
-        <Col>
-          <ProductsSearchFunctionality />
-        </Col>
-        {/* second columns end */}
       </Row>
     </div>
   );

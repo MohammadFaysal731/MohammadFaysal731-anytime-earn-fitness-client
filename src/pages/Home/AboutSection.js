@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
-import CountUp from 'react-countup';
+import React, { useState } from "react";
+import CountUp from "react-countup";
 import { AiFillPlusCircle } from "react-icons/ai";
 import { GiWeight, GiWeightLiftingUp } from "react-icons/gi";
-import ScrollTrigger from 'react-scroll-trigger';
-import AboutImage from "../assets/images/others/about.png";
+import ScrollTrigger from "react-scroll-trigger";
+import AboutImage from "../../assets/images/others/about.png";
+const AboutSection = () => {
+    const [counterOn, setCounterOn] = useState(false);
 
-const About = () => {
-  const [counterOn, setCounterOn]=useState(false);
   return (
     <>
       <div
@@ -41,9 +41,11 @@ const About = () => {
                       onEnter={() => setCounterOn(true)}
                       onExit={() => setCounterOn(false)}
                     >
-                      {counterOn && <CountUp start={0} end={1400} duration={3} delay={0} />
-                    }&nbsp;<AiFillPlusCircle />
-                      
+                      {counterOn && (
+                        <CountUp start={0} end={1400} duration={3} delay={0} />
+                      )}
+                      &nbsp;
+                      <AiFillPlusCircle />
                     </ScrollTrigger>
                   </span>
                   <h5>TRAINED PEOPLE</h5>
@@ -57,7 +59,9 @@ const About = () => {
                       onEnter={() => setCounterOn(true)}
                       onExit={() => setCounterOn(false)}
                     >
-                    {counterOn &&<CountUp start={0} end={1200} duration={3} delay={0} />}
+                      {counterOn && (
+                        <CountUp start={0} end={1200} duration={3} delay={0} />
+                      )}
                       &nbsp;
                       <AiFillPlusCircle />
                     </ScrollTrigger>
@@ -73,4 +77,4 @@ const About = () => {
   );
 };
 
-export default About;
+export default AboutSection;

@@ -1,4 +1,5 @@
-import About from "../pages/About";
+import AboutMe from "../pages/AboutMe";
+import Blog from "../pages/Blog";
 import Contact from "../pages/Contact";
 import Home from "../pages/Home/Home";
 import Services from "../pages/Home/Services/Services";
@@ -13,7 +14,8 @@ export const publicRoutes = [
   { path: "/trainers", name: "Trainers", Comment: Trainers },
   { path: "/services", name: " Services", Comment: Services },
   { path: "/pricing", name: "Pricing", Comment: Services },
-  { path: "/about", name: "About", Comment: About },
+  { path: "/about-me", name: "AboutME", Comment: AboutMe },
+  { path: "/blog", name: "Blog", Comment:Blog },
   { path: "/contact", name: "Contact", Comment: Contact },
   { path: "/sing-up", name: "SingUP", Comment: SingUp },
   { path: "/sign-in", name: "SignIn", Comment: SignIn },
