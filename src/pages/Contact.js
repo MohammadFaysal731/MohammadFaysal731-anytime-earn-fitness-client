@@ -1,29 +1,31 @@
+
+import emailjs from "@emailjs/browser";
 import React, { useRef } from "react";
 import { Form } from "react-bootstrap";
 import Me from "../assets/images/others/contact.jpg";
-const Contact = () => {
-  const nameRef = useRef('');
-  const emailRef = useRef('');
-  const classRef = useRef('');
-  const commentRef = useRef('');
 
-  const handelSubmit = (e) =>{
+const Contact = () => {
+  const form = useRef();
+
+  const sendEmail = (e) => {
     e.preventDefault();
-    const fullName = nameRef.current.value;
-    const email = emailRef.current.value;
-    const youClass = classRef.current.value;
-    const comment =commentRef.current.value;
-    const data={
-      fullName,
-      email,
-      youClass,
-      comment
-      
-    }
-    e.target.reset();
-     console.log(data);
-     
-  }
+    emailjs
+      .sendForm(
+        "service_cvnifo3",
+        "template_oy86bs8",
+        form.current,
+        "pB-OjZw0SnNtzlaKV"
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
+     e.target.reset(); 
+  };
   return (
     <div style={{ background: "#742A59" }} className="border p-5">
       <div className="container">
@@ -33,7 +35,8 @@ const Contact = () => {
         <div className="row g-3">
           <div className="col-12 col-md-6 text-white">
             <Form
-              onSubmit={handelSubmit}
+              ref={form}
+              onSubmit={sendEmail}
               className="mb-3 p-3 rounded-3 h-100 w-100"
               style={{ border: "2px solid white" }}
             >
@@ -41,14 +44,7 @@ const Contact = () => {
               {/* full name  */}
               <Form.Group className="mb-3">
                 <Form.Label className="">Full Name</Form.Label>
-                <Form.Control
-                  type="text"
-                  placeholder="Full Name"
-                  ref={nameRef}
-                />
-                <Form.Text className="text-muted">
-                  We'll never share your email with anyone else.
-                </Form.Text>
+                <Form.Control type="text" placeholder="Full Name" name="name" />
               </Form.Group>
               {/* email address */}
               <Form.Group className="mb-3">
@@ -56,23 +52,8 @@ const Contact = () => {
                 <Form.Control
                   type="email"
                   placeholder="Email Address"
-                  ref={emailRef}
+                  name="email"
                 />
-                <Form.Text className="text-muted">
-                  We'll never share your email with anyone else.
-                </Form.Text>
-              </Form.Group>
-              {/* select class */}
-              <Form.Group className="mb-3" controlId="formBasicEmail">
-                <Form.Label>Select Class</Form.Label>
-                <Form.Select size="md" ref={classRef}>
-                  <option>Select Class</option>
-                  <option>am Class</option>
-                  <option>tumi Class</option>
-                </Form.Select>
-                <Form.Text className="text-muted">
-                  We'll never share your email with anyone else.
-                </Form.Text>
               </Form.Group>
               {/* comment */}
               <Form.Group
@@ -80,7 +61,12 @@ const Contact = () => {
                 controlId="exampleForm.ControlTextarea1"
               >
                 <Form.Label>Comment</Form.Label>
-                <Form.Control as="textarea" placeholder="Comment" rows={3} ref={commentRef}/>
+                <Form.Control
+                  as="textarea"
+                  placeholder="Comment"
+                  rows={3}
+                  name="message"
+                />
               </Form.Group>
               <button
                 className="btn"
