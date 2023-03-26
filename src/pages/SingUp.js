@@ -1,7 +1,7 @@
 
 import React, { useEffect } from "react";
 import { useCreateUserWithEmailAndPassword, useUpdateProfile } from "react-firebase-hooks/auth";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import SingUpImages from "../assets/images/others/sing-up.png";
 import Loading from "../components/Loading";
@@ -12,15 +12,16 @@ const SingUp = () => {
     useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
     const [updateProfile, updating, updatingError] = useUpdateProfile(auth);
     const navigate =useNavigate();
-   
+    const location = useLocation();
+    const from = location.state?.from?.pathname || "/";
     let errorElement;
    
    
     useEffect(() => {
       if (emailUser) {
-        navigate("/checkout");
+        navigate(from,{replace:true});
       }
-    }, [emailUser, navigate,]);
+    }, [emailUser, navigate,from]);
     
    if (emailLoading || updating) {
      return <Loading />;
@@ -62,7 +63,7 @@ const SingUp = () => {
           <form onSubmit={handleSubmit}>
             <h2 style={{ color: "#742A59" }}>Sing Up</h2>
             <div className="row">
-              {/*  Name  */}
+              {/* Full Name  */}
               <div class="mb-3 col-6">
                 <label for="full-name" class="form-label">
                   Full Name

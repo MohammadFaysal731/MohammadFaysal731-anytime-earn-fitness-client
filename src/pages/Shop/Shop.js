@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Card, Col, Row } from "react-bootstrap";
+import { BsStarFill, BsStarHalf } from "react-icons/bs";
 import Pagination from "./Pagination";
 
 const Shop = () => {
@@ -27,7 +28,6 @@ const Shop = () => {
       <Row xs={1} md={1}>
         {/* first columns start */}
         <Col>
-       
           <Row xs={1} md={2} className="g-3">
             {currentProduct?.map(
               (
@@ -44,13 +44,13 @@ const Shop = () => {
                 index
               ) => (
                 <Col key={index}>
-                  <Card style={{ height: "100%" }}>
+                  <Card className="w-100 h-100">
                     <Card.Img
                       variant="top"
                       src={image}
                       className="img-fluid "
                     />
-                    <Card.Body>
+                    <Card.Body >
                       <Card.Title className="">{name}</Card.Title>
                       <div>
                         <h5>$ {price} /-</h5>
@@ -78,6 +78,19 @@ const Shop = () => {
                           ) : (
                             ""
                           )}
+                          <Card.Text style={{ color: "orange" }}>
+                            <BsStarFill className="mx-1" />
+                            <BsStarFill className="mx-1" />
+                            <BsStarFill className="mx-1" />
+                            <BsStarFill className="mx-1" />
+                            <BsStarHalf className="mx-1" />
+                          </Card.Text>
+                          {/* <button
+                            className="text-uppercase btn text-white"
+                            style={{ background: "#742A59" }}
+                          >
+                            Add To Cart
+                          </button> */}
                         </div>
                       </div>
                     </Card.Body>

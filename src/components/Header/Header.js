@@ -4,13 +4,13 @@ import { useAuthState, useSignOut } from "react-firebase-hooks/auth";
 import { BiLogIn } from "react-icons/bi";
 import { CgGym } from "react-icons/cg";
 import { MdSportsGymnastics } from "react-icons/md";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import User from "../../assets/images/others/user.jpg";
 import auth from "../../firebase.inti";
 const Header = () => {
   const [user] = useAuthState(auth);
   const [signOut] = useSignOut(auth);
-  console.log(user);
+
   return (
     <>
       <Navbar
@@ -26,7 +26,7 @@ const Header = () => {
             <span>
               <CgGym className="fs-1" />
             </span>
-            Anytime Earn Fitness
+            Earn Fitness
             <span>
               <MdSportsGymnastics className="fs-1" />
             </span>
@@ -34,26 +34,105 @@ const Header = () => {
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="mx-auto">
-              <Nav.Link as={Link} to="/services">
+              <Nav.Link
+                as={NavLink}
+                to="/services"
+                style={({ isActive }) => {
+                  return {
+                    color: isActive ? "orange" : "white",
+                  };
+                }}
+              >
                 Services
               </Nav.Link>
-              <Nav.Link as={Link} to="/trainers">
+              <Nav.Link
+                as={NavLink}
+                to="/trainers"
+                style={({ isActive }) => {
+                  return {
+                    color: isActive ? "orange" : "white",
+                  };
+                }}
+              >
                 Trainers
               </Nav.Link>
-              <Nav.Link as={Link} to="/shop">
+              <Nav.Link
+                as={NavLink}
+                to="/shop"
+                style={({ isActive }) => {
+                  return {
+                    color: isActive ? "orange" : "white",
+                  };
+                }}
+              >
                 Shope
               </Nav.Link>
-              <Nav.Link as={Link} to="/about-me">
+              <Nav.Link
+                as={NavLink}
+                to="/about-me"
+                style={({ isActive }) => {
+                  return {
+                    color: isActive ? "orange" : "white",
+                  };
+                }}
+              >
                 About Me
               </Nav.Link>
-              <Nav.Link as={Link} to="/blog">
+              <Nav.Link
+                as={NavLink}
+                to="/blog"
+                style={({ isActive }) => {
+                  return {
+                    color: isActive ? "orange" : "white",
+                  };
+                }}
+              >
                 Blog
               </Nav.Link>
-              <Nav.Link as={Link} to="/contact">
+              <Nav.Link
+                as={NavLink}
+                to="/contact"
+                style={({ isActive }) => {
+                  return {
+                    color: isActive ? "orange" : "white",
+                  };
+                }}
+              >
                 Contact
               </Nav.Link>
-              {/* online-course end */}
             </Nav>
+            {/* add to card */}
+            {/* <div class="dropdown">
+              <div
+                className="text-white position-relative dropdown-toggle"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <AiOutlineShoppingCart />
+                <span className="position-absolute top-0 start-100 translate-middle">
+                  <small>0</small>
+                </span>
+              </div>
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="# ">
+                    Action
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="# ">
+                    Another action
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="# ">
+                    Something else here
+                  </a>
+                </li>
+              </ul>
+            </div> */}
+
             <Nav>
               {user ? (
                 <>
@@ -90,7 +169,15 @@ const Header = () => {
                 </>
               ) : (
                 <>
-                  <Nav.Link as={Link} to="/sign-in">
+                  <Nav.Link
+                    as={NavLink}
+                    to="/sign-in"
+                    style={({ isActive }) => {
+                      return {
+                        color: isActive ? "orange" : "white",
+                      };
+                    }}
+                  >
                     Sign in
                     <BiLogIn />
                   </Nav.Link>
