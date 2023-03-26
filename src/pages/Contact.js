@@ -3,8 +3,10 @@ import emailjs from "@emailjs/browser";
 import React, { useRef } from "react";
 import { Form } from "react-bootstrap";
 import Me from "../assets/images/others/contact.jpg";
+import useTitle from "../hooks/useTitle";
 
 const Contact = () => {
+  useTitle("Contact")
   const form = useRef();
 
   const sendEmail = (e) => {

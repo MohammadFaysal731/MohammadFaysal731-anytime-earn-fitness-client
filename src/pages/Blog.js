@@ -3,7 +3,9 @@ import { Card, Col, Row } from "react-bootstrap";
 import QuestionImage1 from "../assets/images/others/difference-between-authorization-and-authentication.png";
 import QuestionImage3 from "../assets/images/others/firebase-provide.png";
 import QuestionImage2 from "../assets/images/others/using-firebase.png";
+import useTitle from "../hooks/useTitle";
 const Blog = () => {
+  useTitle('Blog')
   return (
     <>
       <Row xs={1} md={3} className="g-4 p-3 m-0">

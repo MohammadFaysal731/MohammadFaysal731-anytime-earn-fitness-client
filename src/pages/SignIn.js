@@ -9,7 +9,9 @@ import SingInImages from "../assets/images/others/sign-in.png";
 import Loading from "../components/Loading";
 import SocialAuthentication from "../components/SocialAuthentication/SocialAuthentication";
 import auth from "../firebase.inti";
+import useTitle from "../hooks/useTitle";
 const SignIn = () => {
+  useTitle("Sign-in")
   const [signInWithEmailAndPassword, emailUser, emailLoading, emailError] =
     useSignInWithEmailAndPassword(auth);
   const [sendPasswordResetEmail, sending, error] =

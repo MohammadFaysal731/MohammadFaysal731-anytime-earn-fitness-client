@@ -7,7 +7,9 @@ import SingUpImages from "../assets/images/others/sing-up.png";
 import Loading from "../components/Loading";
 import SocialAuthentication from "../components/SocialAuthentication/SocialAuthentication";
 import auth from "../firebase.inti";
+import useTitle from "../hooks/useTitle";
 const SingUp = () => {
+  useTitle("Sing-up")
   const [createUserWithEmailAndPassword, emailUser, emailLoading, emailError] =
     useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
     const [updateProfile, updating, updatingError] = useUpdateProfile(auth);

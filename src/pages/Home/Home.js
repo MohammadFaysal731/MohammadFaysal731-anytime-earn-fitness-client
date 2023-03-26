@@ -1,4 +1,5 @@
 import React from 'react';
+import useTitle from '../../hooks/useTitle';
 import Trainers from '../Trainers/Trainers';
 import AboutSection from './AboutSection';
 import Banner from './Banner';
@@ -7,6 +8,7 @@ import Services from './Services/Services';
 import WeeklyClassSchedule from './WeeklyClassSchedule/WeeklyClassSchedule';
 
 const Home = () => {
+  useTitle("Home")
   return (
     <>
       <Banner />

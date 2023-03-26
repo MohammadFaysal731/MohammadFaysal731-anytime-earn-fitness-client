@@ -3,8 +3,10 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
 import { useParams } from "react-router-dom";
 import auth from "../firebase.inti";
+import useTitle from "../hooks/useTitle";
 
 const Checkout = () => {
+  useTitle("Checkout")
   const { name } = useParams();
   const [user] = useAuthState(auth);
   const [massage,setMassage]=useState('');

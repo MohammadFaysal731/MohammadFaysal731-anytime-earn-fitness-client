@@ -2,8 +2,10 @@ import React from "react";
 import { Card, Col, Row } from "react-bootstrap";
 import { TiTickOutline } from "react-icons/ti";
 import { useNavigate } from "react-router-dom";
+import useTitle from "../../../hooks/useTitle";
 import { servicesData } from "./ServicesData";
 const Services = () => {
+  useTitle("Services")
   const navigate=useNavigate();
   const handelNavigate = name =>{
     navigate(`/services/${name}`);

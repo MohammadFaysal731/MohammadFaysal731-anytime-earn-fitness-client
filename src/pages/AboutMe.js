@@ -1,7 +1,9 @@
 import React from 'react';
 import { FcAbout } from "react-icons/fc";
 import myself from "../assets/images/others/myself.png";
+import useTitle from '../hooks/useTitle';
 const AboutMe = () => {
+  useTitle("About Me")
   return (
     <>
       <div className="container">

@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Card, Col, Row } from "react-bootstrap";
 import { BsStarFill, BsStarHalf } from "react-icons/bs";
+import useTitle from "../../hooks/useTitle";
 import Pagination from "./Pagination";
 
 const Shop = () => {
+  useTitle("Shop")
   const [shopData, setShopData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [productsPerPage] = useState(4);

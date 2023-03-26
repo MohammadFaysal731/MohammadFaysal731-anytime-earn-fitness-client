@@ -1,8 +1,10 @@
 import React from "react";
 import { Card, Col, Row } from "react-bootstrap";
+import useTitle from "../../hooks/useTitle";
 import { trainerData } from "./TrainersData";
 
 const Trainers = () => {
+  useTitle("Trainers")
   return (
     <>
       <div className="container p-3">
