@@ -6,10 +6,10 @@ const WeeklyClassSchedule = () => {
   return (
     <div className="p-3">
       <div className="text-center m-4">
-        <h3 style={{ color: "#742A59" }} className="text-uppercase">
+        <h2 style={{ color: "#742A59" }} className="text-uppercase">
           Time & Table
-        </h3>
-        <h2 style={{ color: "#9F2FF0" }}>Weekly Class Schedule</h2>
+        </h2>
+        <h3 style={{ color: "#9F2FF0" }}>Weekly Class Schedule</h3>
       </div>
       <Table responsive style={{ background: "#742A59", color: "white" }}>
         <thead>

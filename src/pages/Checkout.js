@@ -19,9 +19,9 @@ const Checkout = () => {
   };
   return (
     <>
-      <h4 className="text-center p-2">
+      <h2 className="text-center p-3">
         Welcome To <span style={{ color: "#742A59" }}>Checkout</span>
-      </h4>
+      </h2>
 
       <div className="container mx-auto m-3">
         <div className=" mt-3 border rounded p-3">

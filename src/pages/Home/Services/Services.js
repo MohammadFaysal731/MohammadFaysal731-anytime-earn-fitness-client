@@ -13,10 +13,10 @@ const Services = () => {
   return (
     <div className="container p-3 my-5 ">
       <div className="text-center mb-4">
-        <h3 style={{ color: "#742A59" }} className="text-uppercase">
+        <h2 style={{ color: "#742A59" }} className="text-uppercase">
           Services Chart
-        </h3>
-        <h2 style={{ color: "#9F2FF0" }}>Choose A Service By Package</h2>
+        </h2>
+        <h4 style={{ color: "#9F2FF0" }}>Choose A Service By Package</h4>
       </div>
 
       <Row xs={1} md={2} lg={3} className="g-4">

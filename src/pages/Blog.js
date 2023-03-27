@@ -7,7 +7,10 @@ import useTitle from "../hooks/useTitle";
 const Blog = () => {
   useTitle('Blog')
   return (
-    <>
+    <div>
+      <h2 className="text-center m-3" style={{ color: "#742A59" }}>
+        Welcome to My Blog
+      </h2>
       <Row xs={1} md={3} className="g-4 p-3 m-0">
         <Col>
           <Card>
@@ -87,7 +90,7 @@ const Blog = () => {
           </Card>
         </Col>
       </Row>
-    </>
+    </div>
   );
 };
 

@@ -32,7 +32,7 @@ const Contact = () => {
     <div style={{ background: "#742A59" }} className="border p-5">
       <div className="container">
         <h2 className="text-center text-white mb-5 mt-0">
-          We are here for help you! To Shape Your Body.
+          We Are Here For Help You! To Shape Your Body.
         </h2>
         <div className="row g-3">
           <div className="col-12 col-md-6 text-white">

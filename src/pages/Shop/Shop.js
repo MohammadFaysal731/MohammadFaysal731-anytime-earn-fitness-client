@@ -26,7 +26,9 @@ const Shop = () => {
   
   return (
     <div className="container">
-      <h2 className="text-center m-3">Welcome to Our Online Shope</h2>
+      <h2 className="text-center m-3" style={{ color: "#742A59" }}>
+        Welcome to Our Online Shope
+      </h2>
       <Row xs={1} md={1}>
         {/* first columns start */}
         <Col>
@@ -52,7 +54,7 @@ const Shop = () => {
                       src={image}
                       className="img-fluid "
                     />
-                    <Card.Body >
+                    <Card.Body>
                       <Card.Title className="">{name}</Card.Title>
                       <div>
                         <h5>$ {price} /-</h5>

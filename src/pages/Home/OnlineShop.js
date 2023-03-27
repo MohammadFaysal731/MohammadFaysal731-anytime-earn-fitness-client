@@ -71,9 +71,9 @@ const OnlineShop = () => {
     <>
       <div className="container">
         <div className="text-center">
-          <h4 style={{ color: "#742A59" }} className="text-uppercase">
+          <h2 style={{ color: "#742A59" }} className="text-uppercase">
             Shop Online
-          </h4>
+          </h2>
           <h3 style={{ color: "#9F2FF0" }}>Our Online Shop</h3>
         </div>
         <Row xs={1} md={2} lg={3} className="g-4 mb-5">
