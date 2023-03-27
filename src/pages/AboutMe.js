@@ -8,7 +8,7 @@ const AboutMe = () => {
     <>
       <div className="container">
         <h1 className="text-center mt-2">
-          <FcAbout></FcAbout>Welcome <span className="text-success">To</span> My <span className="text-success">
+          <FcAbout></FcAbout>Welcome <span style={{ color: "#742A59" }}>To</span> My <span style={{ color: "#742A59" }}>
             World <FcAbout></FcAbout>
           </span>
           
@@ -16,10 +16,10 @@ const AboutMe = () => {
         <div className=" row mt-5 shadow-lg p-3 mb-5 rounded">
           <div className="col-12 col-md-6 col-lg-9">
             <h1>
-              Mohammad <span className="text-success"> Faysal </span>
+              Mohammad <span style={{ color: "#742A59" }}> Faysal </span>
             </h1>
             <h4>
-              My <span className="text-success"> Goal: </span>
+              My <span style={{ color: "#742A59" }}> Goal: </span>
             </h4>
             <blockquote>
               I am a student of Programing Hero.My Goal is can finished my

@@ -4,7 +4,7 @@
 
 ### Project Features
 
-- 3 kind of sing up system
+- 3 kind of login system
 - email and password base
 - continue with google
 - continue with facebook
