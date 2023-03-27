@@ -4,7 +4,7 @@
 
 ### Project Features
 
-- 3 kind of sign up system
+- 3 kind of sign in system
 - email and password base
 - continue with google
 - continue with facebook
