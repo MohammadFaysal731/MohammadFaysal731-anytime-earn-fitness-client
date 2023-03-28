@@ -1,6 +1,7 @@
 import React from "react";
 import { Card, Col, Row } from "react-bootstrap";
 import { BsStarFill, BsStarHalf } from "react-icons/bs";
+import { Link } from "react-router-dom";
 import Product1 from "../../assets/images/online-shop/electric-Treadmill-DK-12ADP2.JPG";
 import Product2 from "../../assets/images/online-shop/foot-Pedal-Rubber-Leg-Pull-Exerciser.JPG";
 import Product3 from "../../assets/images/online-shop/hand-Grip-Ninja.JPG";
@@ -93,14 +94,10 @@ const OnlineShop = () => {
             ) => (
               <Col key={index}>
                 <Card className="w-100 h-100">
-                  <Card.Img
-                    variant="top"
-                    src={image}
-                   className="img-fluid"
-                  />
+                  <Card.Img variant="top" src={image} className="img-fluid" />
                   <Card.Body>
                     <Card.Title>{name}</Card.Title>
-                     
+
                     <div>
                       <h5>$ {price} /-</h5>
                       <h5>Description:</h5>
@@ -147,6 +144,14 @@ const OnlineShop = () => {
               </Col>
             )
           )}
+          <Link to="/shop">
+            <button
+              className="btn btn-link text-decoration-none"
+              style={{ color: "#742A59" }}
+            >
+              Go to shop
+            </button>
+          </Link>
         </Row>
       </div>
     </>
